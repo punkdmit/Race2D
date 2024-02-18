@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		511DA6C2F6014B5B8BD8F97F /* Pods_Race2D_Aston.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40464C9E4CC4E3041E2B0E19 /* Pods_Race2D_Aston.framework */; };
+		F8B426D62B8220050095194D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426D52B8220050095194D /* AppDelegate.swift */; };
+		F8B426D82B8220050095194D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426D72B8220050095194D /* SceneDelegate.swift */; };
+		F8B426DA2B8220050095194D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426D92B8220050095194D /* ViewController.swift */; };
+		F8B426DF2B8220070095194D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8B426DE2B8220070095194D /* Assets.xcassets */; };
+		F8B426E22B8220070095194D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B426E02B8220070095194D /* LaunchScreen.storyboard */; };
+		F8B426F22B8224210095194D /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426F12B8224210095194D /* AppConstants.swift */; };
+		F8B426F42B82242C0095194D /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426F32B82242C0095194D /* Fonts.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		40464C9E4CC4E3041E2B0E19 /* Pods_Race2D_Aston.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Race2D_Aston.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6143653A20351159425A4D03 /* Pods-Race2D-Aston.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Race2D-Aston.debug.xcconfig"; path = "Target Support Files/Pods-Race2D-Aston/Pods-Race2D-Aston.debug.xcconfig"; sourceTree = "<group>"; };
+		E8C0F526164EC62F86241B01 /* Pods-Race2D-Aston.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Race2D-Aston.release.xcconfig"; path = "Target Support Files/Pods-Race2D-Aston/Pods-Race2D-Aston.release.xcconfig"; sourceTree = "<group>"; };
+		F8B426D22B8220050095194D /* Race2D-Aston.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Race2D-Aston.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8B426D52B8220050095194D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F8B426D72B8220050095194D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F8B426D92B8220050095194D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8B426DE2B8220070095194D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F8B426E12B8220070095194D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F8B426E32B8220070095194D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8B426F12B8224210095194D /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		F8B426F32B82242C0095194D /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F8B426CF2B8220050095194D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				511DA6C2F6014B5B8BD8F97F /* Pods_Race2D_Aston.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10AD72DBB02C2FD3172AEB63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40464C9E4CC4E3041E2B0E19 /* Pods_Race2D_Aston.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C54C3CDA8F4CBE8EBB435303 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6143653A20351159425A4D03 /* Pods-Race2D-Aston.debug.xcconfig */,
+				E8C0F526164EC62F86241B01 /* Pods-Race2D-Aston.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F8B426C92B8220050095194D = {
+			isa = PBXGroup;
+			children = (
+				F8B426D42B8220050095194D /* Race2D-Aston */,
+				F8B426D32B8220050095194D /* Products */,
+				C54C3CDA8F4CBE8EBB435303 /* Pods */,
+				10AD72DBB02C2FD3172AEB63 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F8B426D32B8220050095194D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8B426D22B8220050095194D /* Race2D-Aston.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8B426D42B8220050095194D /* Race2D-Aston */ = {
+			isa = PBXGroup;
+			children = (
+				F8B426ED2B8223080095194D /* AppLayer */,
+				F8B426E92B8222970095194D /* Supporting_files */,
+				F8B426E32B8220070095194D /* Info.plist */,
+			);
+			path = "Race2D-Aston";
+			sourceTree = "<group>";
+		};
+		F8B426E92B8222970095194D /* Supporting_files */ = {
+			isa = PBXGroup;
+			children = (
+				F8B426D52B8220050095194D /* AppDelegate.swift */,
+				F8B426D72B8220050095194D /* SceneDelegate.swift */,
+				F8B426DE2B8220070095194D /* Assets.xcassets */,
+				F8B426E02B8220070095194D /* LaunchScreen.storyboard */,
+			);
+			path = Supporting_files;
+			sourceTree = "<group>";
+		};
+		F8B426EA2B8222B30095194D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F8B426D92B8220050095194D /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F8B426EB2B8222BB0095194D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F8B426EC2B8222C20095194D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F8B426ED2B8223080095194D /* AppLayer */ = {
+			isa = PBXGroup;
+			children = (
+				F8B426EE2B82231A0095194D /* UIComponent */,
+				F8B426F02B8224070095194D /* Sources */,
+				F8B426F52B8224730095194D /* Module */,
+			);
+			path = AppLayer;
+			sourceTree = "<group>";
+		};
+		F8B426EE2B82231A0095194D /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				F8B426EF2B8223300095194D /* TextFieldView */,
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		F8B426EF2B8223300095194D /* TextFieldView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TextFieldView;
+			sourceTree = "<group>";
+		};
+		F8B426F02B8224070095194D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F8B426F12B8224210095194D /* AppConstants.swift */,
+				F8B426F32B82242C0095194D /* Fonts.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F8B426F52B8224730095194D /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				F8B426EB2B8222BB0095194D /* Model */,
+				F8B426EC2B8222C20095194D /* View */,
+				F8B426EA2B8222B30095194D /* Controller */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F8B426D12B8220050095194D /* Race2D-Aston */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8B426E62B8220070095194D /* Build configuration list for PBXNativeTarget "Race2D-Aston" */;
+			buildPhases = (
+				3BC87CF2FB8C433E11F0D2B0 /* [CP] Check Pods Manifest.lock */,
+				F8B426CE2B8220050095194D /* Sources */,
+				F8B426CF2B8220050095194D /* Frameworks */,
+				F8B426D02B8220050095194D /* Resources */,
+				DDA7936C59242CB2CE9E6C11 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Race2D-Aston";
+			productName = "Race2D-Aston";
+			productReference = F8B426D22B8220050095194D /* Race2D-Aston.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F8B426CA2B8220050095194D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					F8B426D12B8220050095194D = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = F8B426CD2B8220050095194D /* Build configuration list for PBXProject "Race2D-Aston" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F8B426C92B8220050095194D;
+			productRefGroup = F8B426D32B8220050095194D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F8B426D12B8220050095194D /* Race2D-Aston */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F8B426D02B8220050095194D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8B426E22B8220070095194D /* LaunchScreen.storyboard in Resources */,
+				F8B426DF2B8220070095194D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3BC87CF2FB8C433E11F0D2B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Race2D-Aston-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDA7936C59242CB2CE9E6C11 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Race2D-Aston/Pods-Race2D-Aston-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Race2D-Aston/Pods-Race2D-Aston-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Race2D-Aston/Pods-Race2D-Aston-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F8B426CE2B8220050095194D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8B426DA2B8220050095194D /* ViewController.swift in Sources */,
+				F8B426F42B82242C0095194D /* Fonts.swift in Sources */,
+				F8B426D62B8220050095194D /* AppDelegate.swift in Sources */,
+				F8B426D82B8220050095194D /* SceneDelegate.swift in Sources */,
+				F8B426F22B8224210095194D /* AppConstants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F8B426E02B8220070095194D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8B426E12B8220070095194D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F8B426E42B8220070095194D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F8B426E52B8220070095194D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F8B426E72B8220070095194D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6143653A20351159425A4D03 /* Pods-Race2D-Aston.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 338KW5973W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Race2D-Aston/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.study.Race2D-Aston";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F8B426E82B8220070095194D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8C0F526164EC62F86241B01 /* Pods-Race2D-Aston.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 338KW5973W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Race2D-Aston/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.study.Race2D-Aston";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F8B426CD2B8220050095194D /* Build configuration list for PBXProject "Race2D-Aston" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8B426E42B8220070095194D /* Debug */,
+				F8B426E52B8220070095194D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8B426E62B8220070095194D /* Build configuration list for PBXNativeTarget "Race2D-Aston" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8B426E72B8220070095194D /* Debug */,
+				F8B426E82B8220070095194D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F8B426CA2B8220050095194D /* Project object */;
+}
