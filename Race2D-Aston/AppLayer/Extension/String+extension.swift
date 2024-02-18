@@ -5,4 +5,8 @@
 //  Created by Dmitry Apenko on 18.02.2024.
 //
 
-import Foundation
+extension Optional where Wrapped == String {
+    var isEmptyOrNil: Bool {
+        return self != nil || self != ""
+    }
+}

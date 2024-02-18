@@ -14,6 +14,6 @@ enum AppConstants {
     static let compactSpacing: CGFloat = 8
     /// Константа для задания отступов 16px для iPhone 11 pro
     static let normalSpacing: CGFloat = 16
-    /// Константа для задания отступов 16px для iPhone 11 pro
+    /// Константа для задания отступов 32px для iPhone 11 pro
     static let largeSpacing: CGFloat = 32
 }
