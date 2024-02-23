@@ -8,9 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		511DA6C2F6014B5B8BD8F97F /* Pods_Race2D_Aston.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40464C9E4CC4E3041E2B0E19 /* Pods_Race2D_Aston.framework */; };
+		F82AF82A2B876F7E00CC9A69 /* RaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF8292B876F7E00CC9A69 /* RaceViewController.swift */; };
+		F82AF82C2B8770E300CC9A69 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF82B2B8770E300CC9A69 /* MainView.swift */; };
+		F82AF82E2B87710000CC9A69 /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF82D2B87710000CC9A69 /* GenericViewController.swift */; };
+		F82AF8302B877ADA00CC9A69 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF82F2B877ADA00CC9A69 /* SettingsViewController.swift */; };
+		F82AF8322B877AEB00CC9A69 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF8312B877AEB00CC9A69 /* RecordsViewController.swift */; };
+		F82AF8342B877C8B00CC9A69 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF8332B877C8B00CC9A69 /* SettingsView.swift */; };
+		F82AF8362B877C9900CC9A69 /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF8352B877C9900CC9A69 /* RecordsView.swift */; };
+		F82AF8382B877CBF00CC9A69 /* RaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF8372B877CBF00CC9A69 /* RaceView.swift */; };
+		F8377A782B88C54B00F056BA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8377A772B88C54B00F056BA /* User.swift */; };
 		F8B426D62B8220050095194D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426D52B8220050095194D /* AppDelegate.swift */; };
 		F8B426D82B8220050095194D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426D72B8220050095194D /* SceneDelegate.swift */; };
-		F8B426DA2B8220050095194D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426D92B8220050095194D /* ViewController.swift */; };
+		F8B426DA2B8220050095194D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426D92B8220050095194D /* MainViewController.swift */; };
 		F8B426DF2B8220070095194D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8B426DE2B8220070095194D /* Assets.xcassets */; };
 		F8B426E22B8220070095194D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B426E02B8220070095194D /* LaunchScreen.storyboard */; };
 		F8B426F22B8224210095194D /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426F12B8224210095194D /* AppConstants.swift */; };
@@ -20,16 +29,27 @@
 		F8B426FC2B8237260095194D /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426FB2B8237260095194D /* TextFieldView.swift */; };
 		F8B426FE2B82375A0095194D /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426FD2B82375A0095194D /* String+extension.swift */; };
 		F8B427002B8237DD0095194D /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426FF2B8237DD0095194D /* Assets.swift */; };
+		F8B427032B82916A0095194D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B427022B82916A0095194D /* CustomButton.swift */; };
+		F8DC89F72B84CBCD00E64952 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DC89F62B84CBCD00E64952 /* UIView+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		40464C9E4CC4E3041E2B0E19 /* Pods_Race2D_Aston.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Race2D_Aston.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6143653A20351159425A4D03 /* Pods-Race2D-Aston.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Race2D-Aston.debug.xcconfig"; path = "Target Support Files/Pods-Race2D-Aston/Pods-Race2D-Aston.debug.xcconfig"; sourceTree = "<group>"; };
 		E8C0F526164EC62F86241B01 /* Pods-Race2D-Aston.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Race2D-Aston.release.xcconfig"; path = "Target Support Files/Pods-Race2D-Aston/Pods-Race2D-Aston.release.xcconfig"; sourceTree = "<group>"; };
+		F82AF8292B876F7E00CC9A69 /* RaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceViewController.swift; sourceTree = "<group>"; };
+		F82AF82B2B8770E300CC9A69 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F82AF82D2B87710000CC9A69 /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
+		F82AF82F2B877ADA00CC9A69 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F82AF8312B877AEB00CC9A69 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
+		F82AF8332B877C8B00CC9A69 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F82AF8352B877C9900CC9A69 /* RecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsView.swift; sourceTree = "<group>"; };
+		F82AF8372B877CBF00CC9A69 /* RaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceView.swift; sourceTree = "<group>"; };
+		F8377A772B88C54B00F056BA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F8B426D22B8220050095194D /* Race2D-Aston.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Race2D-Aston.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B426D52B8220050095194D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8B426D72B8220050095194D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F8B426D92B8220050095194D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8B426D92B8220050095194D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F8B426DE2B8220070095194D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8B426E12B8220070095194D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8B426E32B8220070095194D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,6 +60,8 @@
 		F8B426FB2B8237260095194D /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		F8B426FD2B82375A0095194D /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		F8B426FF2B8237DD0095194D /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		F8B427022B82916A0095194D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		F8DC89F62B84CBCD00E64952 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +91,85 @@
 				E8C0F526164EC62F86241B01 /* Pods-Race2D-Aston.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F82AF8392B877F9900CC9A69 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F82AF83B2B877FE900CC9A69 /* View */,
+				F82AF83C2B877FED00CC9A69 /* Controller */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		F82AF83B2B877FE900CC9A69 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F82AF82B2B8770E300CC9A69 /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F82AF83C2B877FED00CC9A69 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F8B426D92B8220050095194D /* MainViewController.swift */,
+				F82AF82D2B87710000CC9A69 /* GenericViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F82AF83D2B87802000CC9A69 /* Race */ = {
+			isa = PBXGroup;
+			children = (
+				F82AF8402B87808B00CC9A69 /* Model */,
+				F82AF8412B87809000CC9A69 /* View */,
+				F82AF8422B87809400CC9A69 /* Controller */,
+			);
+			path = Race;
+			sourceTree = "<group>";
+		};
+		F82AF83E2B87803A00CC9A69 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F82AF8332B877C8B00CC9A69 /* SettingsView.swift */,
+				F82AF82F2B877ADA00CC9A69 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F82AF83F2B87805100CC9A69 /* Records */ = {
+			isa = PBXGroup;
+			children = (
+				F8B426EB2B8222BB0095194D /* Model */,
+				F8B426EC2B8222C20095194D /* View */,
+				F8B426EA2B8222B30095194D /* Controller */,
+			);
+			path = Records;
+			sourceTree = "<group>";
+		};
+		F82AF8402B87808B00CC9A69 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F8377A772B88C54B00F056BA /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F82AF8412B87809000CC9A69 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F82AF8372B877CBF00CC9A69 /* RaceView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F82AF8422B87809400CC9A69 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F82AF8292B876F7E00CC9A69 /* RaceViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		F8B426C92B8220050095194D = {
@@ -113,7 +214,7 @@
 		F8B426EA2B8222B30095194D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F8B426D92B8220050095194D /* ViewController.swift */,
+				F82AF8312B877AEB00CC9A69 /* RecordsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -128,6 +229,7 @@
 		F8B426EC2B8222C20095194D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F82AF8352B877C9900CC9A69 /* RecordsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -146,6 +248,7 @@
 		F8B426EE2B82231A0095194D /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				F8B427012B8290BE0095194D /* ButtonView */,
 				F8B426EF2B8223300095194D /* TextFieldView */,
 			);
 			path = UIComponent;
@@ -173,9 +276,10 @@
 		F8B426F52B8224730095194D /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				F8B426EB2B8222BB0095194D /* Model */,
-				F8B426EC2B8222C20095194D /* View */,
-				F8B426EA2B8222B30095194D /* Controller */,
+				F82AF8392B877F9900CC9A69 /* MainScreen */,
+				F82AF83D2B87802000CC9A69 /* Race */,
+				F82AF83E2B87803A00CC9A69 /* Settings */,
+				F82AF83F2B87805100CC9A69 /* Records */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -185,8 +289,17 @@
 			children = (
 				F8B426F72B8236E90095194D /* UIViewController+transitionHandler.swift */,
 				F8B426FD2B82375A0095194D /* String+extension.swift */,
+				F8DC89F62B84CBCD00E64952 /* UIView+extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		F8B427012B8290BE0095194D /* ButtonView */ = {
+			isa = PBXGroup;
+			children = (
+				F8B427022B82916A0095194D /* CustomButton.swift */,
+			);
+			path = ButtonView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,15 +417,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8B426FA2B8237030095194D /* CustomTextField.swift in Sources */,
+				F82AF82C2B8770E300CC9A69 /* MainView.swift in Sources */,
 				F8B426F82B8236E90095194D /* UIViewController+transitionHandler.swift in Sources */,
+				F82AF8342B877C8B00CC9A69 /* SettingsView.swift in Sources */,
 				F8B426FC2B8237260095194D /* TextFieldView.swift in Sources */,
-				F8B426DA2B8220050095194D /* ViewController.swift in Sources */,
+				F8B426DA2B8220050095194D /* MainViewController.swift in Sources */,
 				F8B426F42B82242C0095194D /* Fonts.swift in Sources */,
 				F8B426D62B8220050095194D /* AppDelegate.swift in Sources */,
+				F82AF8302B877ADA00CC9A69 /* SettingsViewController.swift in Sources */,
+				F8DC89F72B84CBCD00E64952 /* UIView+extension.swift in Sources */,
 				F8B426D82B8220050095194D /* SceneDelegate.swift in Sources */,
+				F8B427032B82916A0095194D /* CustomButton.swift in Sources */,
 				F8B426F22B8224210095194D /* AppConstants.swift in Sources */,
+				F82AF8322B877AEB00CC9A69 /* RecordsViewController.swift in Sources */,
 				F8B427002B8237DD0095194D /* Assets.swift in Sources */,
+				F82AF8382B877CBF00CC9A69 /* RaceView.swift in Sources */,
+				F82AF82E2B87710000CC9A69 /* GenericViewController.swift in Sources */,
+				F82AF82A2B876F7E00CC9A69 /* RaceViewController.swift in Sources */,
+				F82AF8362B877C9900CC9A69 /* RecordsView.swift in Sources */,
 				F8B426FE2B82375A0095194D /* String+extension.swift in Sources */,
+				F8377A782B88C54B00F056BA /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

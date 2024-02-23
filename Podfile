@@ -3,6 +3,7 @@
 
 def shared_pods
 	pod 'SnapKit'
+	pod 'Kingfisher'
 end
 
 target 'Race2D-Aston' do
