@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  Race.swift
 //  Race2D-Aston
 //
 //  Created by Dmitry Apenko on 23.02.2024.
@@ -20,13 +20,19 @@ struct Records {
     var date: Date
 }
 
-struct Game {
+struct Race {
     enum GameSpeed { case slow, medium, fast }
     enum Obstacle { case tree, bush, without }
     enum CarColor { case carGreen, carBlue, carBlack }
     var gameSpeed: GameSpeed
     var obstacle: Obstacle
     var carColor: CarColor
+    
+    init(gameSpeed: GameSpeed, obstacle: Obstacle, carColor: CarColor) {
+        self.gameSpeed = gameSpeed
+        self.obstacle = obstacle
+        self.carColor = carColor
+    }
 }
 
 

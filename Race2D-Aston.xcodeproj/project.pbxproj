@@ -16,7 +16,7 @@
 		F82AF8342B877C8B00CC9A69 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF8332B877C8B00CC9A69 /* SettingsView.swift */; };
 		F82AF8362B877C9900CC9A69 /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF8352B877C9900CC9A69 /* RecordsView.swift */; };
 		F82AF8382B877CBF00CC9A69 /* RaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF8372B877CBF00CC9A69 /* RaceView.swift */; };
-		F8377A782B88C54B00F056BA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8377A772B88C54B00F056BA /* User.swift */; };
+		F8377A782B88C54B00F056BA /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8377A772B88C54B00F056BA /* Race.swift */; };
 		F8B426D62B8220050095194D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426D52B8220050095194D /* AppDelegate.swift */; };
 		F8B426D82B8220050095194D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426D72B8220050095194D /* SceneDelegate.swift */; };
 		F8B426DA2B8220050095194D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426D92B8220050095194D /* MainViewController.swift */; };
@@ -45,7 +45,7 @@
 		F82AF8332B877C8B00CC9A69 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F82AF8352B877C9900CC9A69 /* RecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsView.swift; sourceTree = "<group>"; };
 		F82AF8372B877CBF00CC9A69 /* RaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceView.swift; sourceTree = "<group>"; };
-		F8377A772B88C54B00F056BA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F8377A772B88C54B00F056BA /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		F8B426D22B8220050095194D /* Race2D-Aston.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Race2D-Aston.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B426D52B8220050095194D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8B426D72B8220050095194D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 		F82AF8402B87808B00CC9A69 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F8377A772B88C54B00F056BA /* User.swift */,
+				F8377A772B88C54B00F056BA /* Race.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -436,7 +436,7 @@
 				F82AF82A2B876F7E00CC9A69 /* RaceViewController.swift in Sources */,
 				F82AF8362B877C9900CC9A69 /* RecordsView.swift in Sources */,
 				F8B426FE2B82375A0095194D /* String+extension.swift in Sources */,
-				F8377A782B88C54B00F056BA /* User.swift in Sources */,
+				F8377A782B88C54B00F056BA /* Race.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
