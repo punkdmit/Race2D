@@ -11,54 +11,74 @@ class RaceViewController: GenericViewController<RaceView> {
     
     // MARK: Constants
     
-    private enum Constants {
-        static let animationTimeInterval = 0.01
-        static let animationDelay: TimeInterval = 0
-    }
+    private enum Constants { }
     
-    private var timer: Timer?
+//    private var timer: Timer?
+//    private var timeElapsed: TimeInterval = 0
+//    private var beforeStartTime: TimeInterval = 3
     
     private var raceModel: Race?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        startAnimatingLines2()
+        createRaceModel()
+        setupGame()
     }
     
-    func createRace() {
-        raceModel = Race(gameSpeed: .slow, obstacle: .tree, carColor: .carBlack)
+    func createRaceModel() {
+        raceModel = Race(
+            gameSpeed: .fast,
+            obstacleName: .tree,
+            carColorName: .carRed
+        )
+    }
+
+    func setupGame() {
+        createCar()
+        setupGameSpeed()
+        setupObstacle()
     }
     
-    func startAnimatingLines2() {
-        timer = Timer.scheduledTimer(
-            withTimeInterval: Constants.animationTimeInterval,
-            repeats: true
-        ) { [weak self] _ in
-            guard let self = self else { return }
-            for lineView in rootView.lineViews {
-                var newFrame = lineView.frame
-                UIView.animate(
-                    withDuration: Constants.animationTimeInterval,
-                    delay: Constants.animationDelay,
-                    options: [.curveLinear, .repeat],
-                    animations: {
-//                        var newFrame = lineView.frame
-                        newFrame.origin.y += 4
-                        lineView.frame = newFrame
-                    }, completion: { _ in
-                        if lineView.frame.minY >= self.rootView.roadView.bounds.height {
-//                            var newFrame = lineView.frame
-                            newFrame.origin.y = -newFrame.height
-                            lineView.frame = newFrame
-                        }
-                })
-            }
-        }
+    func createCar() {
+        guard let raceModel = raceModel else { return }
+        rootView.carImageName = raceModel.carColorName.rawValue
     }
     
-    func stopAnimatingLines() {
-        timer?.invalidate()
-        timer = nil
+    func setupGameSpeed() {
+        guard let raceModel = raceModel else { return }
+        rootView.animationSpeed = raceModel.gameSpeed.rawValue
+        rootView.isAnimating = true
     }
+    
+    func setupObstacle() {
+        guard let raceModel = raceModel else { return }
+//        rootView.obstacleImageName = raceModel.obstacleName.rawValue
+    }
+    
+//    func timerBeforeGameStart() {
+//        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+//            self?.beforeStartTime -= 1
+//        }
+//        
+//        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] _ in
+//            self?.timerStop()
+//            self?.timerStart()
+//        }
+//    }
+//    
+//    func timerStart() {
+//        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+//            self?.timeElapsed += 1
+//        }
+//        
+//        Timer.scheduledTimer(withTimeInterval: 60, repeats: false) { [weak self] _ in
+//            self?.timerStop()
+//        }
+//    }
+//    
+//    func timerStop() {
+//        timer?.invalidate()
+//        timer = nil
+//    }
 
 }

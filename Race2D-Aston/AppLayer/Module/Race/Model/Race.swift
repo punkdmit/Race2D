@@ -20,19 +20,37 @@ struct Records {
     var date: Date
 }
 
+
+
+struct Settings {
+//    var gameSpeed: GameSpeed
+//    var obstacle: Obstacle
+//    var carColor: CarColor
+    var race: Race
+}
+
+enum GameSpeed: CGFloat {
+    case slow = 1.0
+    case medium = 2.0
+    case fast = 7.0
+}
+
+enum Obstacle: String {
+    case tree = "tree"
+    case bush = "bush"
+    case without = "without"
+}
+
+enum CarColor: String {
+    case carGreen = "greenCar"
+    case carRed = "redCar"
+    case carBlack = "blackCar"
+}
+
 struct Race {
-    enum GameSpeed { case slow, medium, fast }
-    enum Obstacle { case tree, bush, without }
-    enum CarColor { case carGreen, carBlue, carBlack }
     var gameSpeed: GameSpeed
-    var obstacle: Obstacle
-    var carColor: CarColor
-    
-    init(gameSpeed: GameSpeed, obstacle: Obstacle, carColor: CarColor) {
-        self.gameSpeed = gameSpeed
-        self.obstacle = obstacle
-        self.carColor = carColor
-    }
+    var obstacleName: Obstacle
+    var carColorName: CarColor
 }
 
 
