@@ -7,23 +7,33 @@
 
 import UIKit
 
-class RecordsViewController: GenericViewController<RecordsView> {
-
+class RecordsViewController: UIViewController {
+    
+    private lazy var recordsView: RecordsView = {
+        let view = RecordsView()
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+}
 
-        // Do any additional setup after loading the view.
+//MARK: Private methods
+
+private extension RecordsViewController {
+    
+    func setupUI() {
+        configureLayout()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configureLayout() {
+        view.addSubview(recordsView)
+        
+        recordsView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+           
+        }
     }
-    */
-
 }

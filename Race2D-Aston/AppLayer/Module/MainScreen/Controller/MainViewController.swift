@@ -7,38 +7,62 @@
 
 import UIKit
 
-class MainViewController: GenericViewController<MainView> {
+class MainViewController: UIViewController {
 
+    // MARK: <#extension#>
+    
+    private lazy var mainView: MainView = {
+        let view = MainView()
+        view.delegate = self
+        return view
+    }()
+    
+//    override func loadView() {
+//        let mainView = MainView()
+//        mainView.delegate = self
+//        view = mainView
+//    }
+    
+    // MARK: <#extension#>
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setupUI()
     }
 }
 
-//MARK: Internal methods
+//MARK: MainViewDelegate
 
-extension MainViewController {
+extension MainViewController: MainViewDelegate {
     
-    @objc private func gameTapped(_ sender: UIButton) {
+    func didTapStartButton() {
         push(RaceViewController())
     }
     
-    @objc func settingsTapped(_ sender: UIButton) {
+    func didTapSettingsButton() {
         push(SettingsViewController())
     }
     
-    @objc func recordsTapped(_ sender: UIButton) {
+    func didTapRecordsButton() {
         push(RecordsViewController())
     }
+    
 }
 
 //MARK: Private methods
 
 private extension MainViewController {
     
-    func setup() {
-        rootView.startButton.addTarget(self, action: #selector(gameTapped), for: .touchUpInside)
-        rootView.settingsButton.addTarget(self, action: #selector(settingsTapped), for: .touchUpInside)
-        rootView.recordsButton.addTarget(self, action: #selector(recordsTapped), for: .touchUpInside)
+    func setupUI() {
+        configureLayout()
+    }
+    
+    func configureLayout() {
+        view.addSubview(mainView)
+        
+        mainView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+           
+        }
     }
 }

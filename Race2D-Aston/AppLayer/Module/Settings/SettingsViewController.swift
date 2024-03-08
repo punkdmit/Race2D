@@ -7,23 +7,36 @@
 
 import UIKit
 
-class SettingsViewController: GenericViewController<SettingsView> {
-
+class SettingsViewController: UIViewController {
+    
+    private lazy var settingsView: SettingsView = {
+        let view = SettingsView()
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupUI()
+        view.backgroundColor = .red
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+//MARK: Private methods
+
+private extension SettingsViewController {
+    
+    func setupUI() {
+        configureLayout()
+    }
+    
+    func configureLayout() {
+        view.addSubview(settingsView)
+        
+        settingsView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+           
+        }
+    }
+}
+

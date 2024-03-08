@@ -21,7 +21,7 @@ struct Records {
 }
 
 
-
+// Вроде не нужна
 struct Settings {
 //    var gameSpeed: GameSpeed
 //    var obstacle: Obstacle
@@ -30,9 +30,9 @@ struct Settings {
 }
 
 enum GameSpeed: CGFloat {
-    case slow = 1.0
-    case medium = 2.0
-    case fast = 7.0
+    case slow = 4.0
+    case medium = 7.0
+    case fast = 10.0
 }
 
 enum Obstacle: String {
@@ -47,10 +47,16 @@ enum CarColor: String {
     case carBlack = "blackCar"
 }
 
+enum Control {
+    case tap
+    case swipe
+}
+
 struct Race {
     var gameSpeed: GameSpeed
     var obstacleName: Obstacle
     var carColorName: CarColor
+    var control: Control
 }
 
 

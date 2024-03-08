@@ -9,6 +9,12 @@ import Kingfisher
 import SnapKit
 import UIKit
 
+protocol MainViewDelegate: AnyObject {
+    func didTapStartButton()
+    func didTapSettingsButton()
+    func didTapRecordsButton()
+}
+
 class MainView: UIView {
     
     //MARK: Constants
@@ -18,42 +24,63 @@ class MainView: UIView {
         static let startButtonTitle = "Start"
         static let settingsButtonTitle = "Settings"
         static let recordsButtonTitle = "Records"
-        static let backgroundImageURL = "https://i.pinimg.com/originals/01/36/6a/01366accc76cd523f100873afd6930e2.jpg"
+        static let backgroundImageURL = URL(
+            string: "https://i.pinimg.com/originals/01/36/6a/01366accc76cd523f100873afd6930e2.jpg"
+        )
     }
     
-    lazy var backgroundImageView: UIImageView = {
+    // MARK: Internal properties
+    
+    weak var delegate: MainViewDelegate?
+    
+    // MARK: Private properties
+    
+    private lazy var backgroundImageView: UIImageView = {
         let image = UIImageView()
-        let url = URL(string: Constants.backgroundImageURL)
-        image.kf.setImage(with: url)
+        image.kf.setImage(with: Constants.backgroundImageURL)
         image.contentMode = .scaleAspectFill
         return image
     }()
 
-    
-    lazy var startButton: CustomButton = {
-        let button = CustomButton()
-        button.title = Constants.startButtonTitle
-        return button
-    }()
-    
-    lazy var settingsButton: CustomButton = {
-        let button = CustomButton()
-        button.title = Constants.settingsButtonTitle
-        return button
-    }()
-    
-    lazy var recordsButton: CustomButton = {
-        let button = CustomButton()
-        button.title = Constants.recordsButtonTitle
-        return button
-    }()
-    
-    lazy var stackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.distribution = .fillEqually
         stack.spacing = AppConstants.normalSpacing
         return stack
+    }()
+    
+    private lazy var startButton: CustomButton = {
+        let button = CustomButton()
+        button.title = Constants.startButtonTitle
+        button.addTarget(
+            self,
+            action: #selector(didTapStartButton),
+            for: .touchUpInside
+        )
+        return button
+    }()
+    
+    private lazy var settingsButton: CustomButton = {
+        let button = CustomButton()
+        button.title = Constants.settingsButtonTitle
+        button.addTarget(
+            self,
+            action: #selector(didTapSettingsButton),
+            for: .touchUpInside
+        )
+        return button
+    }()
+    
+    private  lazy var recordsButton: CustomButton = {
+        let button = CustomButton()
+        button.title = Constants.recordsButtonTitle
+        button.addTarget(
+            self,
+            action: #selector(didTapRecordsButton),
+            for: .touchUpInside
+        )
+        return button
     }()
     
     //MARK: Inizialization
@@ -64,8 +91,25 @@ class MainView: UIView {
     }
        
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupUI()
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+//MARK: Action
+
+@objc
+private extension MainView {
+    
+    func didTapStartButton(_ sender: UIButton) {
+        delegate?.didTapStartButton()
+    }
+    
+    func didTapSettingsButton(_ sender: UIButton) {
+        delegate?.didTapSettingsButton()
+    }
+    
+    func didTapRecordsButton(_ sender: UIButton) {
+        delegate?.didTapRecordsButton()
     }
 }
 

@@ -10,7 +10,6 @@
 		511DA6C2F6014B5B8BD8F97F /* Pods_Race2D_Aston.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40464C9E4CC4E3041E2B0E19 /* Pods_Race2D_Aston.framework */; };
 		F82AF82A2B876F7E00CC9A69 /* RaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF8292B876F7E00CC9A69 /* RaceViewController.swift */; };
 		F82AF82C2B8770E300CC9A69 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF82B2B8770E300CC9A69 /* MainView.swift */; };
-		F82AF82E2B87710000CC9A69 /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF82D2B87710000CC9A69 /* GenericViewController.swift */; };
 		F82AF8302B877ADA00CC9A69 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF82F2B877ADA00CC9A69 /* SettingsViewController.swift */; };
 		F82AF8322B877AEB00CC9A69 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF8312B877AEB00CC9A69 /* RecordsViewController.swift */; };
 		F82AF8342B877C8B00CC9A69 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF8332B877C8B00CC9A69 /* SettingsView.swift */; };
@@ -30,7 +29,6 @@
 		F8B426FE2B82375A0095194D /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426FD2B82375A0095194D /* String+extension.swift */; };
 		F8B427002B8237DD0095194D /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426FF2B8237DD0095194D /* Assets.swift */; };
 		F8B427032B82916A0095194D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B427022B82916A0095194D /* CustomButton.swift */; };
-		F8DC89F72B84CBCD00E64952 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DC89F62B84CBCD00E64952 /* UIView+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +37,6 @@
 		E8C0F526164EC62F86241B01 /* Pods-Race2D-Aston.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Race2D-Aston.release.xcconfig"; path = "Target Support Files/Pods-Race2D-Aston/Pods-Race2D-Aston.release.xcconfig"; sourceTree = "<group>"; };
 		F82AF8292B876F7E00CC9A69 /* RaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceViewController.swift; sourceTree = "<group>"; };
 		F82AF82B2B8770E300CC9A69 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		F82AF82D2B87710000CC9A69 /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
 		F82AF82F2B877ADA00CC9A69 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F82AF8312B877AEB00CC9A69 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		F82AF8332B877C8B00CC9A69 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -61,7 +58,6 @@
 		F8B426FD2B82375A0095194D /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		F8B426FF2B8237DD0095194D /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		F8B427022B82916A0095194D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		F8DC89F62B84CBCD00E64952 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				F8B426D92B8220050095194D /* MainViewController.swift */,
-				F82AF82D2B87710000CC9A69 /* GenericViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -132,8 +127,8 @@
 		F82AF83E2B87803A00CC9A69 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				F82AF8332B877C8B00CC9A69 /* SettingsView.swift */,
 				F82AF82F2B877ADA00CC9A69 /* SettingsViewController.swift */,
+				F82AF8332B877C8B00CC9A69 /* SettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -289,7 +284,6 @@
 			children = (
 				F8B426F72B8236E90095194D /* UIViewController+transitionHandler.swift */,
 				F8B426FD2B82375A0095194D /* String+extension.swift */,
-				F8DC89F62B84CBCD00E64952 /* UIView+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -425,14 +419,12 @@
 				F8B426F42B82242C0095194D /* Fonts.swift in Sources */,
 				F8B426D62B8220050095194D /* AppDelegate.swift in Sources */,
 				F82AF8302B877ADA00CC9A69 /* SettingsViewController.swift in Sources */,
-				F8DC89F72B84CBCD00E64952 /* UIView+extension.swift in Sources */,
 				F8B426D82B8220050095194D /* SceneDelegate.swift in Sources */,
 				F8B427032B82916A0095194D /* CustomButton.swift in Sources */,
 				F8B426F22B8224210095194D /* AppConstants.swift in Sources */,
 				F82AF8322B877AEB00CC9A69 /* RecordsViewController.swift in Sources */,
 				F8B427002B8237DD0095194D /* Assets.swift in Sources */,
 				F82AF8382B877CBF00CC9A69 /* RaceView.swift in Sources */,
-				F82AF82E2B87710000CC9A69 /* GenericViewController.swift in Sources */,
 				F82AF82A2B876F7E00CC9A69 /* RaceViewController.swift in Sources */,
 				F82AF8362B877C9900CC9A69 /* RecordsView.swift in Sources */,
 				F8B426FE2B82375A0095194D /* String+extension.swift in Sources */,
