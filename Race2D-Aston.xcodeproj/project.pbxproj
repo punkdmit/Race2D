@@ -15,7 +15,7 @@
 		F82AF8342B877C8B00CC9A69 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF8332B877C8B00CC9A69 /* SettingsView.swift */; };
 		F82AF8362B877C9900CC9A69 /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF8352B877C9900CC9A69 /* RecordsView.swift */; };
 		F82AF8382B877CBF00CC9A69 /* RaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF8372B877CBF00CC9A69 /* RaceView.swift */; };
-		F8377A782B88C54B00F056BA /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8377A772B88C54B00F056BA /* Race.swift */; };
+		F8377A782B88C54B00F056BA /* RaceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8377A772B88C54B00F056BA /* RaceSettings.swift */; };
 		F8B426D62B8220050095194D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426D52B8220050095194D /* AppDelegate.swift */; };
 		F8B426D82B8220050095194D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426D72B8220050095194D /* SceneDelegate.swift */; };
 		F8B426DA2B8220050095194D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426D92B8220050095194D /* MainViewController.swift */; };
@@ -25,10 +25,10 @@
 		F8B426F42B82242C0095194D /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426F32B82242C0095194D /* Fonts.swift */; };
 		F8B426F82B8236E90095194D /* UIViewController+transitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426F72B8236E90095194D /* UIViewController+transitionHandler.swift */; };
 		F8B426FA2B8237030095194D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426F92B8237030095194D /* CustomTextField.swift */; };
-		F8B426FC2B8237260095194D /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426FB2B8237260095194D /* TextFieldView.swift */; };
 		F8B426FE2B82375A0095194D /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426FD2B82375A0095194D /* String+extension.swift */; };
 		F8B427002B8237DD0095194D /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B426FF2B8237DD0095194D /* Assets.swift */; };
 		F8B427032B82916A0095194D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B427022B82916A0095194D /* CustomButton.swift */; };
+		F8D912422B9CC30600069E69 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D912412B9CC30600069E69 /* StorageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +42,7 @@
 		F82AF8332B877C8B00CC9A69 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F82AF8352B877C9900CC9A69 /* RecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsView.swift; sourceTree = "<group>"; };
 		F82AF8372B877CBF00CC9A69 /* RaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceView.swift; sourceTree = "<group>"; };
-		F8377A772B88C54B00F056BA /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
+		F8377A772B88C54B00F056BA /* RaceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSettings.swift; sourceTree = "<group>"; };
 		F8B426D22B8220050095194D /* Race2D-Aston.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Race2D-Aston.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B426D52B8220050095194D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8B426D72B8220050095194D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,10 +54,10 @@
 		F8B426F32B82242C0095194D /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		F8B426F72B8236E90095194D /* UIViewController+transitionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+transitionHandler.swift"; sourceTree = "<group>"; };
 		F8B426F92B8237030095194D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		F8B426FB2B8237260095194D /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		F8B426FD2B82375A0095194D /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		F8B426FF2B8237DD0095194D /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		F8B427022B82916A0095194D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		F8D912412B9CC30600069E69 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +127,8 @@
 		F82AF83E2B87803A00CC9A69 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				F82AF82F2B877ADA00CC9A69 /* SettingsViewController.swift */,
-				F82AF8332B877C8B00CC9A69 /* SettingsView.swift */,
+				F8D912442B9CCEAD00069E69 /* View */,
+				F8D912432B9CCEA300069E69 /* Controller */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -146,7 +146,7 @@
 		F82AF8402B87808B00CC9A69 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F8377A772B88C54B00F056BA /* Race.swift */,
+				F8377A772B88C54B00F056BA /* RaceSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,6 +232,7 @@
 		F8B426ED2B8223080095194D /* AppLayer */ = {
 			isa = PBXGroup;
 			children = (
+				F8D912402B9CC2EB00069E69 /* Services */,
 				F8B426EE2B82231A0095194D /* UIComponent */,
 				F8B426F02B8224070095194D /* Sources */,
 				F8B426F62B8236C60095194D /* Extension */,
@@ -253,7 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				F8B426F92B8237030095194D /* CustomTextField.swift */,
-				F8B426FB2B8237260095194D /* TextFieldView.swift */,
 			);
 			path = TextFieldView;
 			sourceTree = "<group>";
@@ -294,6 +294,30 @@
 				F8B427022B82916A0095194D /* CustomButton.swift */,
 			);
 			path = ButtonView;
+			sourceTree = "<group>";
+		};
+		F8D912402B9CC2EB00069E69 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F8D912412B9CC30600069E69 /* StorageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F8D912432B9CCEA300069E69 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F82AF82F2B877ADA00CC9A69 /* SettingsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F8D912442B9CCEAD00069E69 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F82AF8332B877C8B00CC9A69 /* SettingsView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,7 +438,7 @@
 				F82AF82C2B8770E300CC9A69 /* MainView.swift in Sources */,
 				F8B426F82B8236E90095194D /* UIViewController+transitionHandler.swift in Sources */,
 				F82AF8342B877C8B00CC9A69 /* SettingsView.swift in Sources */,
-				F8B426FC2B8237260095194D /* TextFieldView.swift in Sources */,
+				F8D912422B9CC30600069E69 /* StorageService.swift in Sources */,
 				F8B426DA2B8220050095194D /* MainViewController.swift in Sources */,
 				F8B426F42B82242C0095194D /* Fonts.swift in Sources */,
 				F8B426D62B8220050095194D /* AppDelegate.swift in Sources */,
@@ -428,7 +452,7 @@
 				F82AF82A2B876F7E00CC9A69 /* RaceViewController.swift in Sources */,
 				F82AF8362B877C9900CC9A69 /* RecordsView.swift in Sources */,
 				F8B426FE2B82375A0095194D /* String+extension.swift in Sources */,
-				F8377A782B88C54B00F056BA /* Race.swift in Sources */,
+				F8377A782B88C54B00F056BA /* RaceSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

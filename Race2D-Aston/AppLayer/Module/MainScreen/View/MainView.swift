@@ -9,6 +9,8 @@ import Kingfisher
 import SnapKit
 import UIKit
 
+//MARK: MainViewDelegate
+
 protocol MainViewDelegate: AnyObject {
     func didTapStartButton()
     func didTapSettingsButton()

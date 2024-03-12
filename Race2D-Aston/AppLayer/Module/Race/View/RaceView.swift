@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import SnapKit
+
+//MARK: RaceViewDelegate
 
 protocol RaceViewDelegate: AnyObject {
     func didCarHit()
@@ -24,7 +25,7 @@ final class RaceView: UIView {
         static let verticalAnimationTimeInterval = 0.01
         static let horizontalAnimationTimeInterval = 0.5
         static let animationDelay: TimeInterval = 0
-        static let obstacleCreatingDelay: ClosedRange<Double> = 1...3
+        static let obstacleCreatingDelay: ClosedRange<Double> = 0.5...1.5
         static let obstacleImageWidth = 50.0
         static let obstacleImageHeight = 50.0
         static let obstacleImageViewTag = 1
@@ -33,6 +34,7 @@ final class RaceView: UIView {
         static let carImageHeight = 104.0
         static let carLeftCenterEqualToSuperview = 0.5
         static let carRightCenterEqualToSuperview = 1.5
+        static let scoreLabelHeight = 30.0
         static let numberOfStripes = 1 + Int(
             UIScreen.main.bounds.height / (Constants.lineViewHeight + Constants.lineViewsSpacing)
         )
@@ -41,21 +43,21 @@ final class RaceView: UIView {
     // MARK: Internal properties
     
     weak var delegate: RaceViewDelegate?
+    
     var animationSpeed: CGFloat?
     var obstacleImageName: String?
-    
+    var carImageName: String? {
+        didSet {
+            carImageView.image = UIImage(named: carImageName ?? "")
+        }
+    }
+
     var isAnimating = true {
         didSet {
             if isAnimating {
                 startAnimatingLines()
                 startAnimatingObstacle()
             }
-        }
-    }
-    
-    var carImageName = "" {
-        didSet {
-            carImageView.image = UIImage(named: carImageName)
         }
     }
     
@@ -159,41 +161,38 @@ extension RaceView {
 private extension RaceView {
     
     func setupUI() {
-        backgroundColor = .orange
+        backgroundColor = .orange // ДОБАВИТЬ ЦВЕТ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         configureLayout()
     }
     
     func configureLayout() {
         addSubview(roadView)
         addSubview(scoreLabel)
-        roadView.insertSubview(carImageView, at: roadView.subviews.count)
+        roadView.addSubview(carImageView)
         
-        let roadXPos = self.bounds.width * 0.20
-        let roadYPos = self.frame.minY
+        let roadXPos = bounds.width * 0.2
+        let roadYPos = frame.minY
         roadView.frame = CGRect(
             x: roadXPos,
             y: roadYPos,
             width: bounds.width - roadXPos * 2,
             height: bounds.height
         )
-//        roadView.snp.makeConstraints {
-//            $0.center.equalToSuperview()
-//            $0.top.bottom.equalToSuperview()
-//            $0.width.equalToSuperview().multipliedBy(Constants.roadViewWidth)
-//        }
         
-        scoreLabel.frame = CGRect(x: 0, y: 15, width: roadView.frame.size.width, height: 20)
+        scoreLabel.frame = CGRect(
+            x: 0,
+            y: AppConstants.largeSpacing,
+            width: bounds.width,
+            height: Constants.scoreLabelHeight
+        )
+        scoreLabel.textAlignment = .center
+        scoreLabel.layer.zPosition = 1
 
-//        scoreLabel.snp.makeConstraints {
-//            $0.top.equalTo(safeAreaLayoutGuide)
-//            $0.centerX.equalToSuperview()
-//        }
         for _ in 0 ... Constants.numberOfStripes {
             let lineView = UIView()
             lineView.backgroundColor = Assets.Colors.white
             roadView.addSubview(lineView)
             
-            // Пробный
             let lineXPos = roadView.bounds.width * 0.5 - (Constants.lineViewWidth / 2)
             let lineYPos = -Constants.lineViewHeight + (Double((lineViews.count)) * (Constants.lineViewHeight + Constants.lineViewsSpacing))
             lineView.frame = CGRect(
@@ -202,24 +201,9 @@ private extension RaceView {
                 width: Constants.lineViewWidth,
                 height: Constants.lineViewHeight
             )
-            
-//            lineView.snp.makeConstraints {
-//                $0.centerX.equalToSuperview()
-//                $0.width.equalTo(Constants.lineViewWidth)
-//                $0.height.equalTo(Constants.lineViewHeight)
-//                if lineViews.isEmpty {
-//                    $0.top.equalToSuperview()
-//                        .offset(-Constants.lineViewHeight)
-//                } else {
-//                    $0.top.equalTo(lineViews[lineViews.count - 1].snp.bottom)
-//                        .offset(Constants.lineViewsSpacing)
-//                }
-//            }
-            
             lineViews.append(lineView)
         }
         
-        // Пробный
         let carXPos = roadView.bounds.width * 0.25 - (Constants.carImageWidth / 2)
         let carYPos = roadView.bounds.height - Constants.carImageHeight - AppConstants.largeSpacing
         carImageView.frame = CGRect(
@@ -229,12 +213,6 @@ private extension RaceView {
             height: Constants.carImageHeight
         )
         carImageView.layer.zPosition = 1
-        
-//        carImageView.snp.makeConstraints {
-//            $0.size.equalTo(Constants.carImageSize)
-//            $0.bottom.equalToSuperview().inset(AppConstants.largeSpacing)
-//            $0.centerX.equalToSuperview().offset(roadView.bounds.width/2)
-//        }
     }
     
     func checkIntersection(_ firstView: UIView, _ secondView: UIView) {
@@ -247,9 +225,8 @@ private extension RaceView {
     
     func animateLine(_ lineView: UIView) {
         if !isAnimating { return }
-        
         if lineView.frame.minY >= self.roadView.bounds.height {
-            lineView.frame.origin.y = -lineView.frame.height
+            lineView.frame.origin.y = -lineView.bounds.height
             count += 1
             print("перенесен \(count)")
         }
@@ -271,7 +248,7 @@ private extension RaceView {
         print("Создал препятствие")
         
         let obstacleView = UIImageView()
-        obstacleView.image = UIImage(named: obstacleImageName ?? String())
+        obstacleView.image = UIImage(named: obstacleImageName ?? "")
         obstacleView.tag = Constants.obstacleImageViewTag
         
         let xPos = Bool.random()

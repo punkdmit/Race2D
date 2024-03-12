@@ -42,6 +42,10 @@ final class CustomTextField: UITextField {
             .font: RegularFont.p4,
             .foregroundColor: Assets.Colors.grayIcon
         ]
+        static let raisedNotEmptyTextAttributes: [NSAttributedString.Key: Any] = [
+            .font: RegularFont.p4,
+            .foregroundColor: Assets.Colors.red
+        ]
     }
     
     //MARK: Public properties
@@ -54,19 +58,6 @@ final class CustomTextField: UITextField {
                 string: placeholderText,
                 attributes: Constants.textAttributes
             )
-        }
-    }
-    
-    /// Cостояние ошибки
-    var isError = false {
-        didSet {
-            if isError {
-                layer.borderColor = Assets.Colors.grayIcon.cgColor
-                layer.backgroundColor = Assets.Colors.red.cgColor
-            } else {
-                layer.borderColor = Assets.Colors.grayIcon.cgColor
-                layer.backgroundColor = Assets.Colors.background.cgColor
-            }
         }
     }
     
@@ -133,21 +124,26 @@ extension CustomTextField: UITextFieldDelegate {
         
         layer.borderColor = attributedString.string.isEmpty
         ? Assets.Colors.grayIcon.cgColor
-        : Assets.Colors.accent.cgColor
-        customDelegate?.textField()
+        : Assets.Colors.red.cgColor
+        
+        placeholderLabel.attributedText = attributedString.string.isEmpty
+        ? NSMutableAttributedString(
+            string: placeholderLabel.text ?? "", attributes: Constants.raisedTextAttributes
+        )
+        : NSMutableAttributedString(
+            string: placeholderLabel.text ?? "", attributes: Constants.raisedNotEmptyTextAttributes
+        )
         return false
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         floatTitle()
-        customDelegate?.textFieldShouldBeginEditing()
         return true
     }
     
     /// Пользователь заполняет textField
     func textFieldDidBeginEditing(_ textField: UITextField) {
         performAnimation()
-        customDelegate?.textFieldDidBeginEditing()
     }
     
     /// Пользователь закончил заполнять textField
@@ -158,7 +154,6 @@ extension CustomTextField: UITextFieldDelegate {
         if textField.text?.isEmpty ?? false {
             configureEndEditing()
         }
-        customDelegate?.textFieldDidEndEditing()
     }
 }
 

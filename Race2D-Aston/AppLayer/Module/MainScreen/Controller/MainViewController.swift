@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    // MARK: <#extension#>
+    // MARK: Private properties
     
     private lazy var mainView: MainView = {
         let view = MainView()
@@ -17,13 +17,7 @@ class MainViewController: UIViewController {
         return view
     }()
     
-//    override func loadView() {
-//        let mainView = MainView()
-//        mainView.delegate = self
-//        view = mainView
-//    }
-    
-    // MARK: <#extension#>
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +56,6 @@ private extension MainViewController {
         
         mainView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-           
         }
     }
 }

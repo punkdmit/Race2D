@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "мужские-значок-или-портрет-аватар-красивое-лицо-молодого-человека-с-187127123.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}
