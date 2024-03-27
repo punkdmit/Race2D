@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RaceViewController: UIViewController {
+final class RaceViewController: UIViewController {
     
     // MARK: Constants
     
@@ -29,18 +29,25 @@ class RaceViewController: UIViewController {
         }
     }
     
-    private let user = {
+    private let user: User? = {
         let user = StorageService.shared.load()
         return user
-    }
+    }()
     
     private lazy var raceView: RaceView = {
-        let view = RaceView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        let view = RaceView(
+            frame: CGRect(
+                x: 0,
+                y: 0,
+                width: view.frame.width,
+                height: view.frame.height
+            )
+        )
         view.delegate = self
         return view
     }()
     
-    //MARK: Lyfecycle
+    //MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +74,7 @@ extension RaceViewController: RaceViewDelegate {
         stopAnimating()
         timerStop()
         showAlert()
+        addRecord()
     }
 }
 
@@ -75,11 +83,17 @@ extension RaceViewController: RaceViewDelegate {
 extension RaceViewController: UIGestureRecognizerDelegate {
     
     private func swipeObserver() {
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(executeSwipe))
+        let swipeRight = UISwipeGestureRecognizer(
+            target: self,
+            action: #selector(executeSwipe)
+        )
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
         
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(executeSwipe))
+        let swipeLeft = UISwipeGestureRecognizer(
+            target: self,
+            action: #selector(executeSwipe)
+        )
         swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)
     }
@@ -88,10 +102,8 @@ extension RaceViewController: UIGestureRecognizerDelegate {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             switch swipeGesture.direction {
             case .right:
-                print("Swiped right")
                 raceView.carIsLeft = false
             case .left:
-                print("Swiped left")
                 raceView.carIsLeft = true
             default:
                 break
@@ -119,10 +131,8 @@ extension RaceViewController: UIGestureRecognizerDelegate {
         
         switch leftArea.contains(point) {
         case true:
-            print("Left tapped")
             raceView.carIsLeft = true
         case false:
-            print("Right tapped")
             raceView.carIsLeft = false
         }
     }
@@ -153,6 +163,7 @@ private extension RaceViewController {
 private extension RaceViewController {
     
     func setupUI() {
+        navigationItem.hidesBackButton = true
         configureLayout()
         setupGame()
     }
@@ -167,18 +178,27 @@ private extension RaceViewController {
             message: Constants.alertMessage,
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: Constants.alertDefaultAction, style: .default) { _ in
+        alert.addAction(UIAlertAction(
+            title: Constants.alertDefaultAction,
+            style: .default
+        ) { [weak self] _ in
+            guard let self = self else { return }
             self.resetSubviews()
             self.resetCarPosition()
             self.timerStart()
             self.startAnimating()
         })
-        alert.addAction(UIAlertAction(title: Constants.alertCancelAction, style: .cancel) { _ in
-            ///МБ добавить обнуление всего - проверить
+        alert.addAction(UIAlertAction(
+            title: Constants.alertCancelAction,
+            style: .cancel
+        ) { [weak self] _ in
+            guard let self = self else { return }
             self.back()
         })
         self.present(alert, animated: true, completion: nil)
     }
+    
+    //MARK: Game setup
     
     func setupGame() {
         setupCar()
@@ -188,27 +208,46 @@ private extension RaceViewController {
     }
     
     func setupCar() {
-        raceView.carImageName = user()?.raceSettings.carColorName.rawValue
+        guard let user = user else { return }
+        raceView.carImageName = user.raceSettings.carColorName.rawValue
     }
     
     func setupGameSpeed() {
-        raceView.animationSpeed = user()?.raceSettings.gameSpeed.rawValue
+        guard let user = user else { return }
+        raceView.animationSpeed = user.raceSettings.gameSpeed.rawValue
     }
     
     func setupObstacle() {
-        raceView.obstacleImageName = user()?.raceSettings.obstacleName.rawValue
+        guard let user = user else { return }
+        raceView.obstacleImageName = user.raceSettings.obstacleName.rawValue
     }
     
     func setupControl() {
-        switch user()?.raceSettings.control {
+        guard let user = user else { return }
+        switch user.raceSettings.control {
         case .tap:
             tapObserver()
         case .swipe:
             swipeObserver()
-        case .none:
-            break
         }
     }
+    
+    func addRecord() {
+        guard let user = user else { return }
+        if user.records.count > 15 {
+            user.records.removeLast()
+        }
+        let newUser = User(
+            name: user.name,
+            photo: user.imageName,
+            race: user.raceSettings,
+            records: user.records
+        )
+        newUser.records.append(Record(score: secondsCounter, date: Date()))
+        StorageService.shared.save(newUser)
+    }
+    
+    //MARK: Animations
     
     func startAnimating() {
         raceView.isAnimating = true
@@ -218,11 +257,11 @@ private extension RaceViewController {
         raceView.isAnimating = false
     }
     
-    func resetSubviews() {
-        raceView.removeObstacles()
-    }
-    
     func resetCarPosition() {
         raceView.carIsLeft = true
+    }
+    
+    func resetSubviews() {
+        raceView.removeObstacles()
     }
 }

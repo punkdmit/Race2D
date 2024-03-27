@@ -6,7 +6,7 @@
 //
 
 extension Optional where Wrapped == String {
-    var isEmptyOrNil: Bool {
-        return self != nil || self != ""
+    var isNotEmpty: Bool {
+        return self != ""
     }
 }

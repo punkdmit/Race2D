@@ -7,10 +7,10 @@
 
 import UIKit
 
-//MARK: MainViewDelegate
+//MARK: SettingsViewDelegate
 
 protocol SettingsViewDelegate: AnyObject {
-    func didTapSaveButton()
+    func didTapSaveSettingsButton(inputText: String?)
     func carSettingsLeftButtonTapped()
     func carSettingsRightButtonTapped()
     func gameSpeedSettingsLeftButtonTapped()
@@ -27,11 +27,12 @@ final class SettingsView: UIView {
     
     private enum Constants {
         static let textFieldText = "Введите имя"
-        static let userImageSize = 90.0
+        static let userImageSize = 110.0
         static let textFieldHeight = 48
         static let leftButtonSystemName = "chevron.left"
         static let rightButtonSystemName = "chevron.right"
-        static let saveButtonTitle = "Cохранить"
+        static let saveUserInfoButtonTitle = "Cохранить данные"
+        static let saveSettingsButtonTitle = "Cохранить настройки"
     }
     
     // MARK: Internal properties
@@ -41,6 +42,13 @@ final class SettingsView: UIView {
     var userImage: UIImage? {
         didSet {
             userImageView.image = userImage
+        }
+    }
+    
+    var usernameLabelText: String? {
+        didSet {
+            usernameLabel.text = usernameLabelText
+            usernameLabel.isHidden = !(usernameLabel.text.isNotEmpty)
         }
     }
     
@@ -97,8 +105,15 @@ final class SettingsView: UIView {
     private lazy var userImageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
-//        image.image = UIImage(named: "avatar")
         return image
+    }()
+    
+    private lazy var usernameLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = SemiboldFont.h1
+        label.textColor = Assets.Colors.dark
+        return label
     }()
 
     private lazy var usernameCustomTextField: CustomTextField = {
@@ -119,6 +134,8 @@ final class SettingsView: UIView {
     
     private lazy var carSettingsLabel: UILabel = {
         let label = UILabel()
+        label.textColor = Assets.Colors.dark
+        label.font = SemiboldFont.h2
         return label
     }()
 
@@ -134,6 +151,8 @@ final class SettingsView: UIView {
     
     private lazy var gameSpeedSettingsLabel: UILabel = {
         let label = UILabel()
+        label.textColor = Assets.Colors.dark
+        label.font = SemiboldFont.h2
         return label
     }()
     
@@ -149,6 +168,8 @@ final class SettingsView: UIView {
     
     private lazy var obstacleSettingsLabel: UILabel = {
         let label = UILabel()
+        label.textColor = Assets.Colors.dark
+        label.font = SemiboldFont.h2
         return label
     }()
     
@@ -164,6 +185,8 @@ final class SettingsView: UIView {
 
     private lazy var controlSettingsLabel: UILabel = {
         let label = UILabel()
+        label.textColor = Assets.Colors.dark
+        label.font = SemiboldFont.h2
         return label
     }()
     
@@ -199,12 +222,12 @@ final class SettingsView: UIView {
         rightButtonAction: #selector(controlSettingsRightButtonTapped)
     )
     
-    private lazy var saveCustomButton: CustomButton = {
+    private lazy var saveSettingsCustomButton: CustomButton = {
         let button = CustomButton()
-        button.title = Constants.saveButtonTitle
+        button.title = Constants.saveSettingsButtonTitle
         button.addTarget(
             self,
-            action: #selector(didTapSaveButton),
+            action: #selector(didTapSaveSettingsButton),
             for: .touchUpInside
         )
         return button
@@ -237,6 +260,7 @@ private extension SettingsView {
     
     func setupUI() {
         backgroundColor = Assets.Colors.background
+        
         configureLayout()
     }
     
@@ -244,36 +268,35 @@ private extension SettingsView {
         addSubview(rootStackView)
         rootStackView.addArrangedSubview(userSettingsStackView)
         rootStackView.addArrangedSubview(gameSettingsStackView)
+        rootStackView.addArrangedSubview(buttonStackView)
         
         userSettingsStackView.addArrangedSubview(userImageView)
+        userSettingsStackView.addArrangedSubview(usernameLabel)
         userSettingsStackView.addArrangedSubview(usernameCustomTextField)
-        
-        userImageView.snp.makeConstraints {
-            $0.width.height.equalTo(Constants.userImageSize)
-        }
-        
-        usernameCustomTextField.snp.makeConstraints {
-            $0.height.equalTo(Constants.textFieldHeight)
-        }
         
         gameSettingsStackView.addArrangedSubview(carSettingsStackView)
         gameSettingsStackView.addArrangedSubview(gameSpeedSettingsStackView)
         gameSettingsStackView.addArrangedSubview(obstacleSettingsStackView)
         gameSettingsStackView.addArrangedSubview(controlSettingsStackView)
         
-        rootStackView.snp.makeConstraints {
-            $0.center.equalToSuperview()
-            $0.left.equalToSuperview().offset(16)
-            $0.right.equalToSuperview().offset(-16)
+        buttonStackView.addArrangedSubview(saveSettingsCustomButton)
+        
+        userImageView.snp.makeConstraints {
+            $0.size.equalTo(Constants.userImageSize)
         }
         
-        rootStackView.addArrangedSubview(buttonStackView)
-        buttonStackView.addArrangedSubview(saveCustomButton)
+        usernameCustomTextField.snp.makeConstraints {
+            $0.height.equalTo(Constants.textFieldHeight)
+        }
+        
+        rootStackView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(AppConstants.normalSpacing)
+        }
     }
     
     func createStackView(
         label: UILabel,
-//        labelText: String,
         leftButton: UIButton,
         leftButtonAction: Selector,
         rightButton: UIButton,
@@ -289,6 +312,7 @@ private extension SettingsView {
         stackView.addArrangedSubview(leftView)
 
         leftButton.setImage(UIImage(systemName: Constants.leftButtonSystemName), for: .normal)
+        leftButton.tintColor = Assets.Colors.red
         leftButton.addTarget(
             self,
             action: leftButtonAction,
@@ -297,12 +321,12 @@ private extension SettingsView {
         leftButton.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         stackView.addArrangedSubview(leftButton)
         
-//        label.text = labelText
         label.font = SemiboldFont.h2
         label.textAlignment = .center
         stackView.addArrangedSubview(label)
         
         rightButton.setImage(UIImage(systemName: Constants.rightButtonSystemName), for: .normal)
+        rightButton.tintColor = Assets.Colors.red
         rightButton.addTarget(
             self,
             action: rightButtonAction,
@@ -319,13 +343,15 @@ private extension SettingsView {
     }
 }
 
-//MARK: //MARK: Action
+//MARK: Action
 
 @objc
 private extension SettingsView {
-    
-    func didTapSaveButton() {
-        delegate?.didTapSaveButton()
+
+    func didTapSaveSettingsButton() {
+        delegate?.didTapSaveSettingsButton(inputText: usernameCustomTextField.text)
+        usernameCustomTextField.text = nil
+        usernameCustomTextField.resignFirstResponder()
     }
     
     func carSettingsLeftButtonTapped() {
@@ -353,7 +379,7 @@ private extension SettingsView {
     }
     
     func controlSettingsLeftButtonTapped() {
-        delegate?.carSettingsLeftButtonTapped()
+        delegate?.controlSettingsLeftButtonTapped()
     }
     
     func controlSettingsRightButtonTapped() {

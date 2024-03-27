@@ -35,7 +35,7 @@ final class CustomTextField: UITextField {
         static let animationDuration = 0.2
         static let animationDelay: TimeInterval = 0
         static let textAttributes: [NSAttributedString.Key: Any] = [
-            .font: SemiboldFont.h3,
+            .font: SemiboldFont.h2,
             .foregroundColor: Assets.Colors.dark
         ]
         static let raisedTextAttributes: [NSAttributedString.Key: Any] = [
@@ -49,9 +49,7 @@ final class CustomTextField: UITextField {
     }
     
     //MARK: Public properties
-    
-    weak var customDelegate: CustomTextFieldDelegate?
-    
+        
     var placeholderText: String = "" {
         didSet {
             placeholderLabel.attributedText = NSAttributedString(
@@ -115,9 +113,9 @@ extension CustomTextField: UITextFieldDelegate {
         shouldChangeCharactersIn range: NSRange,
         replacementString string: String
     ) -> Bool {
-                
         let attributedString = NSMutableAttributedString(
-            string: textField.text ?? "", attributes: Constants.textAttributes
+            string: textField.text ?? "", 
+            attributes: Constants.textAttributes
         )
         attributedString.replaceCharacters(in: NSRange(location: range.location, length: range.length), with: string)
         textField.attributedText = attributedString
@@ -126,32 +124,30 @@ extension CustomTextField: UITextFieldDelegate {
         ? Assets.Colors.grayIcon.cgColor
         : Assets.Colors.red.cgColor
         
-        placeholderLabel.attributedText = attributedString.string.isEmpty
-        ? NSMutableAttributedString(
-            string: placeholderLabel.text ?? "", attributes: Constants.raisedTextAttributes
-        )
-        : NSMutableAttributedString(
-            string: placeholderLabel.text ?? "", attributes: Constants.raisedNotEmptyTextAttributes
-        )
+        placeholderLabel.textColor = attributedString.string.isEmpty
+        ? Assets.Colors.grayIcon
+        : Assets.Colors.red
         return false
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        floatTitle()
+        if !(textField.text.isNotEmpty) {
+            floatTitle()
+        }
         return true
     }
     
-    /// Пользователь заполняет textField
     func textFieldDidBeginEditing(_ textField: UITextField) {
         performAnimation()
     }
     
-    /// Пользователь закончил заполнять textField
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        layer.borderColor = Assets.Colors.grayIcon.cgColor
-        layer.backgroundColor = Assets.Colors.background.cgColor
-                
-        if textField.text?.isEmpty ?? false {
+    func textFieldDidEndEditing(_ textField: UITextField) {        
+        switch textField.text.isNotEmpty {
+        case true:
+            layer.borderColor = Assets.Colors.red.cgColor
+            placeholderLabel.textColor = Assets.Colors.red
+        case false:
+            layer.borderColor = Assets.Colors.grayIcon.cgColor
             configureEndEditing()
         }
     }
@@ -177,7 +173,6 @@ private extension CustomTextField {
 
 private extension CustomTextField {
     
-    /// Создание начального вида
     func setupUI() {
         self.delegate = self
         layer.cornerRadius = Constants.boarderCornerRadius
@@ -194,10 +189,10 @@ private extension CustomTextField {
         }
     }
     
-    /// Label поднимается
     func floatTitle() {
         placeholderLabel.attributedText = NSMutableAttributedString(
-            string: placeholderLabel.text ?? "", attributes: Constants.raisedTextAttributes
+            string: placeholderLabel.text ?? "",
+            attributes: Constants.raisedTextAttributes
         )
         placeholderLabel.snp.remakeConstraints {
             $0.top.equalToSuperview().offset(AppConstants.tinySpacing)
@@ -205,11 +200,11 @@ private extension CustomTextField {
         }
     }
     
-    /// Label опускается
     func unfloatTitle() {
         placeholder = nil
         placeholderLabel.attributedText = NSMutableAttributedString(
-            string: placeholderLabel.text ?? "", attributes: Constants.textAttributes
+            string: placeholderLabel.text ?? "",
+            attributes: Constants.textAttributes
         )
         placeholderLabel.snp.remakeConstraints {
             $0.top.equalToSuperview().offset(Constants.labelTopSpacing)

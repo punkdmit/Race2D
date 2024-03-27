@@ -17,15 +17,14 @@ protocol MainViewDelegate: AnyObject {
     func didTapRecordsButton()
 }
 
-class MainView: UIView {
+final class MainView: UIView {
     
     //MARK: Constants
     
     private enum Constants {
-        static let stackWidthMultipliedBy = 0.8
-        static let startButtonTitle = "Start"
-        static let settingsButtonTitle = "Settings"
-        static let recordsButtonTitle = "Records"
+        static let startButtonTitle = "Старт"
+        static let settingsButtonTitle = "Настройки"
+        static let recordsButtonTitle = "Рекорды"
         static let backgroundImageURL = URL(
             string: "https://i.pinimg.com/originals/01/36/6a/01366accc76cd523f100873afd6930e2.jpg"
         )
@@ -136,7 +135,7 @@ private extension MainView {
 
         stackView.snp.makeConstraints {
             $0.center.equalToSuperview()
-            $0.width.equalToSuperview().multipliedBy(Constants.stackWidthMultipliedBy)
+            $0.left.right.equalToSuperview().inset(AppConstants.normalSpacing)
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     // MARK: Private properties
     
@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
         return view
     }()
     
-    // MARK: Lifecycle
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

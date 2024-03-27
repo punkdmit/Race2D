@@ -18,34 +18,34 @@ final class RaceView: UIView {
     //MARK: Constants
     
     private enum Constants {
-        static let roadViewWidth = 0.6
         static let lineViewWidth = 10.0
         static let lineViewHeight = 50.0
-        static let lineViewsSpacing = 15.0
+        
         static let verticalAnimationTimeInterval = 0.01
-        static let horizontalAnimationTimeInterval = 0.5
+        static let horizontalAnimationTimeInterval = 0.3
         static let animationDelay: TimeInterval = 0
+        
         static let obstacleCreatingDelay: ClosedRange<Double> = 0.5...1.5
         static let obstacleImageWidth = 50.0
         static let obstacleImageHeight = 50.0
         static let obstacleImageViewTag = 1
-        static let carImageSize = CGSize(width: 50, height: 104)
+        
         static let carImageWidth = 50.0
         static let carImageHeight = 104.0
-        static let carLeftCenterEqualToSuperview = 0.5
-        static let carRightCenterEqualToSuperview = 1.5
+        
         static let scoreLabelHeight = 30.0
+        
         static let numberOfStripes = 1 + Int(
-            UIScreen.main.bounds.height / (Constants.lineViewHeight + Constants.lineViewsSpacing)
+            UIScreen.main.bounds.height / (Constants.lineViewHeight + AppConstants.normalSpacing)
         )
     }
     
     // MARK: Internal properties
     
     weak var delegate: RaceViewDelegate?
-    
     var animationSpeed: CGFloat?
     var obstacleImageName: String?
+    
     var carImageName: String? {
         didSet {
             carImageView.image = UIImage(named: carImageName ?? "")
@@ -73,8 +73,6 @@ final class RaceView: UIView {
         }
     }
     
-    var count = 0
-
     // MARK: Private properties
     
     private var timer: Timer?
@@ -88,6 +86,7 @@ final class RaceView: UIView {
     
     private lazy var carImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.layer.zPosition = 1
         return imageView
     }()
     
@@ -95,7 +94,8 @@ final class RaceView: UIView {
         let label = UILabel()
         label.font = SemiboldFont.h1
         label.textColor = Assets.Colors.dark
-        label.text = "Счет: \(count)"
+        label.textAlignment = .center
+        label.layer.zPosition = 1
         return label
     }()
     
@@ -124,34 +124,11 @@ private extension RaceView {
 
 extension RaceView {
     
-    func startAnimatingLines() {
-        lineViews.forEach {
-            animateLine($0)
-        }
-    }
-    
-    func startAnimatingObstacle() {
-        if !isAnimating {
-            print("Перестал создавать препятствия")
-            return
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: Constants.obstacleCreatingDelay)) {
-            self.createObstacle()
-            self.startAnimatingObstacle()
-        }
-    }
-    
     func removeObstacles() {
         roadView.subviews.forEach {
             if $0.tag == Constants.obstacleImageViewTag {
                 $0.removeFromSuperview()
             }
-        }
-    }
-    
-    func stopAnimatingLines() {
-        lineViews.forEach {
-            $0.layer.removeAllAnimations()
         }
     }
 }
@@ -161,7 +138,7 @@ extension RaceView {
 private extension RaceView {
     
     func setupUI() {
-        backgroundColor = .orange // ДОБАВИТЬ ЦВЕТ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        backgroundColor = Assets.Colors.orange
         configureLayout()
     }
     
@@ -185,16 +162,14 @@ private extension RaceView {
             width: bounds.width,
             height: Constants.scoreLabelHeight
         )
-        scoreLabel.textAlignment = .center
-        scoreLabel.layer.zPosition = 1
-
+        
         for _ in 0 ... Constants.numberOfStripes {
             let lineView = UIView()
             lineView.backgroundColor = Assets.Colors.white
             roadView.addSubview(lineView)
             
             let lineXPos = roadView.bounds.width * 0.5 - (Constants.lineViewWidth / 2)
-            let lineYPos = -Constants.lineViewHeight + (Double((lineViews.count)) * (Constants.lineViewHeight + Constants.lineViewsSpacing))
+            let lineYPos = -Constants.lineViewHeight + (Double((lineViews.count)) * (Constants.lineViewHeight + AppConstants.normalSpacing))
             lineView.frame = CGRect(
                 x: lineXPos,
                 y: lineYPos,
@@ -212,7 +187,6 @@ private extension RaceView {
             width: Constants.carImageWidth,
             height: Constants.carImageHeight
         )
-        carImageView.layer.zPosition = 1
     }
     
     func checkIntersection(_ firstView: UIView, _ secondView: UIView) {
@@ -223,12 +197,32 @@ private extension RaceView {
     
     //MARK: Animations
     
-    func animateLine(_ lineView: UIView) {
+    func startAnimatingLines() {
+        lineViews.forEach {
+            lineAnimation($0)
+        }
+    }
+    
+    func startAnimatingObstacle() {
+        if !isAnimating {
+            return
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: Constants.obstacleCreatingDelay)) {
+            self.createObstacle()
+            self.startAnimatingObstacle()
+        }
+    }
+    
+    func stopAnimatingLines() {
+        lineViews.forEach {
+            $0.layer.removeAllAnimations()
+        }
+    }
+    
+    func lineAnimation(_ lineView: UIView) {
         if !isAnimating { return }
         if lineView.frame.minY >= self.roadView.bounds.height {
             lineView.frame.origin.y = -lineView.bounds.height
-            count += 1
-            print("перенесен \(count)")
         }
         
         UIView.animate(
@@ -239,14 +233,13 @@ private extension RaceView {
                 lineView.frame.origin.y += self.animationSpeed ?? CGFloat()
             },
             completion: { [weak self] _ in
-                self?.animateLine(lineView)
+                guard let self = self else { return }
+                self.lineAnimation(lineView)
             }
         )
     }
 
     func createObstacle() {
-        print("Создал препятствие")
-        
         let obstacleView = UIImageView()
         obstacleView.image = UIImage(named: obstacleImageName ?? "")
         obstacleView.tag = Constants.obstacleImageViewTag
@@ -262,7 +255,7 @@ private extension RaceView {
             width: Constants.obstacleImageWidth,
             height: Constants.obstacleImageHeight
         )
-        
+
         obstacleAnimation(obstacleView)
     }
     

@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+// MARK: Extension
+
 private extension String {
     static let key = "user"
 }
@@ -20,19 +22,26 @@ final class StorageService {
         static let userImageName = "avatar"
     }
     
-
-    
     static let shared = StorageService()
     private init() {}
     
     func initializeDefaultSettings() {
-//        UserDefaults.standard.removeObject(forKey: .key)
         if load() == nil {
             let image = UIImage(named: Constants.userImageName) ?? UIImage()
             let imageName = try? StorageService.shared.saveImage(image)
-            let defaultSettings = RaceSettings(gameSpeed: .fast, obstacleName: .tree, carColorName: .carRed, control: .swipe)
-            let user = User(name: nil, photo: imageName, race: defaultSettings, records: [])
-            save(user)
+            let defaultSettings = Race(
+                gameSpeed: .fast,
+                obstacleName: .tree,
+                carColorName: .carRed,
+                control: .tap
+            )
+            let user = User(
+                name: nil,
+                photo: imageName,
+                race: defaultSettings,
+                records: []
+            )
+            self.save(user)
         }
     }
     
